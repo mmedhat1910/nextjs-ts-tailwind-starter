@@ -1,0 +1,4 @@
+/.next/
+/.husky/
+postcss.config.js
+tailwind.config.js
