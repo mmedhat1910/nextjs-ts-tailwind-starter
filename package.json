@@ -5,12 +5,20 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky install",
+    "check:types": "tsc --pretty --noEmit",
+    "check:format": "prettier --check .",
+    "format": "prettier --write .",
+    "lint:staged": "npx lint-staged"
   },
   "dependencies": {
     "next": "12.0.7",
     "react": "17.0.2",
     "react-dom": "17.0.2"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   },
   "devDependencies": {
     "@types/node": "16.11.12",
@@ -19,6 +27,8 @@
     "eslint": "8.4.1",
     "eslint-config-next": "12.0.7",
     "eslint-config-prettier": "^8.3.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.2",
     "postcss": "^8.2.15",
     "prettier": "2.5.1",
     "tailwindcss": "^3.0.1",
