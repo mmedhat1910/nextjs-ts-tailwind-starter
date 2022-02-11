@@ -1,7 +1,7 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-
+npm run precommit
 
 echo '🛠  🧪  Styling, testing and building you project before committing  🧪  🛠'
 
@@ -17,17 +17,18 @@ npm run check:types ||
 
 npm run check:format || 
 (
-    echo '😤 Your styling looks bad ! 😤
-        Prettier check failed. Run npm run format, add changes and try commiting again';
-    false;
+    echo '😤 Failed format check ! 😤
+        Prettier check failed. Formatting was applied, try commiting again';
+    npm run format
+    git add .
+
 )
 
 npm run lint || 
 (
-    echo '🙎🏻‍♂️  Get this weak thing out of here! 🙎🏻‍♂️
+    echo '🙎🏻‍♂️  Failed lint check! 🙎🏻‍♂️
             ESLint Check failed. Make the required changes mentioned above and try commiting again';
     false;
 )
-npx lint-staged
 
-echo '🤩 ..Alright.. Code looks good to me.. You can type npm run build to build your code  ⚙️'
+echo '🤩 ..Alright.. Your code is committed ⚙️'
