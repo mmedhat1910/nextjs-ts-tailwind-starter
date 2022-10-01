@@ -4,6 +4,7 @@ import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
+import Header from '../components/organisms/Header';
 
 const Home: NextPage = () => {
   const { t } = useTranslation('common');
@@ -16,6 +17,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
+        <Header />
         <h1 className={styles.title}>
           {t('greeting')}
           <a href="https://nextjs.org">Next.js!</a>

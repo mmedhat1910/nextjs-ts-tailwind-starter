@@ -15,15 +15,6 @@ const Header = () => {
 
   return (
     <header>
-      <nav>
-        <Link href="/">
-          <a className={router.asPath === '/' ? 'active' : ''}>Home</a>
-        </Link>
-        <Link href="/about">
-          <a className={router.asPath === '/about' ? 'active' : ''}>About</a>
-        </Link>
-      </nav>
-
       <select onChange={handleLocaleChange} value={router.locale}>
         <option value="en">🇺🇸 English</option>
         <option value="ar">🇪🇬 Arabic</option>
