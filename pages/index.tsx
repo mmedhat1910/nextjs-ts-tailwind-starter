@@ -69,4 +69,17 @@ const Home: NextPage = () => {
   );
 };
 
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  const translations = await serverSideTranslations(locale as string, [
+    'common',
+  ]);
+
+  return {
+    props: {
+      ...(await serverSideTranslations(locale as string, ['common'])),
+      // Will be passed to the page component as props
+    },
+  };
+};
+
 export default Home;
