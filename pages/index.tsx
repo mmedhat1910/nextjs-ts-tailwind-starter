@@ -1,9 +1,13 @@
-import type { NextPage } from 'next';
+import type { GetStaticProps, NextPage } from 'next';
+import { useTranslation } from 'next-i18next';
 import Head from 'next/head';
 import Image from 'next/image';
+import Header from '../components/organisms/Header';
 import styles from '../styles/Home.module.css';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const Home: NextPage = () => {
+  const { t } = useTranslation('common');
   return (
     <div className={styles.container}>
       <Head>
@@ -13,8 +17,9 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
+        <Header />
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          {t('greeting')} <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
         <p className={styles.description}>
@@ -68,5 +73,16 @@ const Home: NextPage = () => {
     </div>
   );
 };
-
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  const translations = await serverSideTranslations(locale as string, [
+    'common',
+  ]);
+  console.log();
+  return {
+    props: {
+      ...(await serverSideTranslations(locale as string, ['common'])),
+      // Will be passed to the page component as props
+    },
+  };
+};
 export default Home;
