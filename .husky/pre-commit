@@ -1,6 +1,7 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
+
 npm run precommit
 
 echo '🛠  🧪  Styling, testing and building you project before committing  🧪  🛠'

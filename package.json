@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "next": "12.1.5",
+    "next-i18next": "^12.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
@@ -28,17 +29,13 @@
     }
   },
   "devDependencies": {
-
-    "@types/node": "16.11.12",
-    "@types/react": "18.0.21",
-
     "@types/node": "18.7.23",
-
+    "@types/react": "18.0.21",
     "autoprefixer": "^10.4.0",
     "eslint": "8.24.0",
     "eslint-config-next": "12.1.5",
     "eslint-config-prettier": "^8.5.0",
-    "husky": "^8.0.1",
+    "husky": "^7.0.0",
     "lint-staged": "^12.4.1",
     "postcss": "^8.4.17",
     "prettier": "2.7.1",
